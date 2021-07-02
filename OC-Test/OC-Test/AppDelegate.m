@@ -36,17 +36,19 @@
     
     // 同步 + 并发 不开辟子线
     // 同步 + 串行 不开辟子线
-    dispatch_sync(t, ^{
-        //
-        NSLog(@"2 =%@", [NSThread currentThread]);
-    });
-
-    dispatch_sync(t, ^{
-        //
-        NSLog(@"3 =%@", [NSThread currentThread]);
-    });
-    
-    NSLog(@"4 =%@", [NSThread currentThread]);
+//    NSLog(@"main label = %s", dispatch_queue_get_label(dispatch_get_main_queue()));
+//    NSLog(@"g label = %s", dispatch_queue_get_label(t));
+//    dispatch_sync(t, ^{
+//        //
+//        NSLog(@"2 =%@", [NSThread currentThread]);
+//    });
+//
+//    dispatch_sync(t, ^{
+//        //
+//        NSLog(@"3 =%@", [NSThread currentThread]);
+//    });
+//
+//    NSLog(@"4 =%@", [NSThread currentThread]);
     
     return YES;
 }

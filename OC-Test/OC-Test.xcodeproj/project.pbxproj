@@ -16,6 +16,7 @@
 		E736D9AE2680679D0082E694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E736D9AC2680679D0082E694 /* LaunchScreen.storyboard */; };
 		E736D9B12680679D0082E694 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E736D9B02680679D0082E694 /* main.m */; };
 		E736D9CE268195BF0082E694 /* AView.m in Sources */ = {isa = PBXBuildFile; fileRef = E736D9CD268195BE0082E694 /* AView.m */; };
+		E7E16232268F4E8A006E4C4F /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E16231268F4E8A006E4C4F /* BButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		E736D9B02680679D0082E694 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E736D9CC268195BE0082E694 /* AView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AView.h; sourceTree = "<group>"; };
 		E736D9CD268195BE0082E694 /* AView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AView.m; sourceTree = "<group>"; };
+		E7E16230268F4E8A006E4C4F /* BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		E7E16231268F4E8A006E4C4F /* BButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				E736D9CD268195BE0082E694 /* AView.m */,
 				E71D9BEF2685E5C000F311C2 /* AButton.h */,
 				E71D9BF02685E5C000F311C2 /* AButton.m */,
+				E7E16230268F4E8A006E4C4F /* BButton.h */,
+				E7E16231268F4E8A006E4C4F /* BButton.m */,
 				E736D9A72680679A0082E694 /* Main.storyboard */,
 				E736D9AA2680679D0082E694 /* Assets.xcassets */,
 				E736D9AC2680679D0082E694 /* LaunchScreen.storyboard */,
@@ -158,6 +163,7 @@
 				E736D9A62680679A0082E694 /* ViewController.m in Sources */,
 				E71D9BF12685E5C000F311C2 /* AButton.m in Sources */,
 				E736D9A02680679A0082E694 /* AppDelegate.m in Sources */,
+				E7E16232268F4E8A006E4C4F /* BButton.m in Sources */,
 				E736D9B12680679D0082E694 /* main.m in Sources */,
 				E736D9CE268195BF0082E694 /* AView.m in Sources */,
 				E736D9A32680679A0082E694 /* SceneDelegate.m in Sources */,

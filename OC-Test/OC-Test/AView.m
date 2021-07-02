@@ -20,8 +20,8 @@
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     NSLog(@"Aview HitTest ...");
-    return [super hitTest:point withEvent:event];
-    return self;
+//    return [super hitTest:point withEvent:event];
+//    return self;
     
     
     UIView *touchView = self;
@@ -34,7 +34,7 @@
             UIView *subTouchView = [subView hitTest:subPoint withEvent:event];
             if (subTouchView) {
                 touchView = subTouchView;
-//                break;
+                break;
             }
         }
     } else {

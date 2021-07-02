@@ -8,11 +8,13 @@
 #import "ViewController.h"
 #import "AView.h"
 #import "AButton.h"
+#import "BButton.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) AView *aView;
 @property (nonatomic, strong) AButton *btn;
+@property (nonatomic, strong) BButton *btn2;
 
 @end
 
@@ -29,10 +31,26 @@
         btn.layer.borderColor = [UIColor blueColor].CGColor;
         btn.layer.borderWidth = 1;
         [btn setEnlargeEdgeWithTop:10 right:10 bottom:10 left:10];
-        btn.userInteractionEnabled = NO;
+//        btn.userInteractionEnabled = NO;
         _btn = btn;
     }
     return _btn;
+}
+
+- (BButton *)btn2 {
+    if (!_btn2) {
+        BButton *btn = [BButton buttonWithType:UIButtonTypeCustom];
+        btn.backgroundColor = [UIColor clearColor];
+        [btn setTitle:@"click" forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size: 18];
+        [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(bBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        btn.layer.borderColor = [UIColor orangeColor].CGColor;
+        btn.layer.borderWidth = 1;
+//        btn.userInteractionEnabled = NO;
+        _btn2 = btn;
+    }
+    return _btn2;
 }
 
 - (UIView *)aView {
@@ -46,7 +64,11 @@
 }
 
 - (void)aBtnClick {
-    NSLog(@"button click...");
+    NSLog(@"AAA button click...");
+}
+
+- (void)bBtnClick {
+    NSLog(@"BBB button click...");
 }
 
 - (void)aViewClick {
@@ -65,8 +87,20 @@
     
     [self.view addSubview:self.aView];
     self.aView.frame = CGRectMake(20, 100, 300, 300);
+    
+    
+    [self.aView addSubview:self.btn2];
+    self.btn2.frame = CGRectMake(30, 40, 200, 44);
+    
     [self.aView addSubview:self.btn];
-    self.btn.frame = CGRectMake(30, 40, 200, 44);
+    self.btn.frame = CGRectMake(100, 40, 200, 44);
+    
+    dispatch_queue_t t = dispatch_queue_create("com.a", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(t, ^{
+        NSLog(@"1 %@", [NSThread currentThread]);
+    });
+    NSLog(@"2 %@", [NSThread currentThread]);
+    
 }
 
 
