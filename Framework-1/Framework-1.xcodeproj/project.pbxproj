@@ -14,8 +14,7 @@
 		E7166BDC2691E30100B276B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7166BDB2691E30100B276B8 /* Assets.xcassets */; };
 		E7166BDF2691E30100B276B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7166BDD2691E30100B276B8 /* LaunchScreen.storyboard */; };
 		E7166BE22691E30100B276B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7166BE12691E30100B276B8 /* main.m */; };
-		E7166C072691F0A600B276B8 /* TestStaticFR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7166C022691F06C00B276B8 /* TestStaticFR.framework */; };
-		E7166C082691F0A600B276B8 /* TestStaticFR.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7166C022691F06C00B276B8 /* TestStaticFR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E71ABB7F2697075E005DF77A /* TestStaticFR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E71ABB7E2697075E005DF77A /* TestStaticFR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,7 +24,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E7166C082691F0A600B276B8 /* TestStaticFR.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,7 +43,7 @@
 		E7166BDE2691E30100B276B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7166BE02691E30100B276B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7166BE12691E30100B276B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E7166C022691F06C00B276B8 /* TestStaticFR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TestStaticFR.framework; sourceTree = "<group>"; };
+		E71ABB7E2697075E005DF77A /* TestStaticFR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TestStaticFR.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7166C072691F0A600B276B8 /* TestStaticFR.framework in Frameworks */,
+				E71ABB7F2697075E005DF77A /* TestStaticFR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +77,7 @@
 		E7166BCE2691E2FE00B276B8 /* Framework-1 */ = {
 			isa = PBXGroup;
 			children = (
-				E7166C022691F06C00B276B8 /* TestStaticFR.framework */,
+				E71ABB7E2697075E005DF77A /* TestStaticFR.framework */,
 				E7166BCF2691E2FE00B276B8 /* AppDelegate.h */,
 				E7166BD02691E2FE00B276B8 /* AppDelegate.m */,
 				E7166BD22691E2FE00B276B8 /* SceneDelegate.h */,
@@ -245,7 +243,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -298,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -318,10 +316,11 @@
 					"$(PROJECT_DIR)/Framework-1",
 				);
 				INFOPLIST_FILE = "Framework-1/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					../../,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "alan.com.Framework-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -341,10 +340,11 @@
 					"$(PROJECT_DIR)/Framework-1",
 				);
 				INFOPLIST_FILE = "Framework-1/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					../../,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "alan.com.Framework-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
