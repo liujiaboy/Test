@@ -95,11 +95,7 @@
     [self.aView addSubview:self.btn];
     self.btn.frame = CGRectMake(100, 40, 200, 44);
     
-    dispatch_queue_t t = dispatch_queue_create("com.a", DISPATCH_QUEUE_SERIAL);
-    dispatch_sync(t, ^{
-        NSLog(@"1 %@", [NSThread currentThread]);
-    });
-    NSLog(@"2 %@", [NSThread currentThread]);
+//    [self gcdTest3];
     
 }
 
@@ -195,6 +191,35 @@
         NSLog(@"i = %d", i);
     });
     i = 20;
+}
+
+- (void)gcdTest2 {
+    NSLog(@"1");
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"2");
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"3");
+        });
+        NSLog(@"4");
+    });
+    
+    
+    NSLog(@"5");
+}
+
+- (void)gcdTest3 {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"1");
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"2");
+        });
+        NSLog(@"3");
+    });
+    NSLog(@"4");
+    while (1) {
+        
+    }
+    NSLog(@"5");
 }
 
 @end
