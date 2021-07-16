@@ -9,6 +9,7 @@
 #import "AView.h"
 #import "AButton.h"
 #import "BButton.h"
+#import <YYDispatchQueuePool.h>
 
 @interface ViewController ()
 
@@ -96,6 +97,14 @@
     self.btn.frame = CGRectMake(100, 40, 200, 44);
     
 //    [self gcdTest3];
+    
+    YYDispatchQueuePool *pool = [YYDispatchQueuePool defaultPoolForQOS:NSQualityOfServiceUtility];
+    dispatch_async([pool queue], ^{
+        NSLog(@"name 1 = %@", [NSThread currentThread]);
+    });
+    dispatch_async([pool queue], ^{
+        NSLog(@"name 2 = %@", [NSThread currentThread]);
+    });
     
 }
 

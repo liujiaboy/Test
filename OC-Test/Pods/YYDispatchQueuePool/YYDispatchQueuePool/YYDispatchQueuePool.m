@@ -173,7 +173,7 @@ static YYDispatchContext *YYDispatchContextGetForQOS(NSQualityOfService qos) {
     return self;
 }
 
-- (instancetype)initWithName:(NSString *)name queueCount:(NSUInteger)queueCount qos:(NSQualityOfService)qos {
+- (instancetype)initWithName:(NSString *)name queueCount:(NSUInteger)queueCount qos:(NSQualityOfService)qos  API_AVAILABLE(ios(8.0)){
     if (queueCount == 0 || queueCount > MAX_QUEUE_COUNT) return nil;
     self = [super init];
     _context = YYDispatchContextCreate(name.UTF8String, (uint32_t)queueCount, qos);
