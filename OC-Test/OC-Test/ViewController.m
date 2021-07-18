@@ -98,13 +98,24 @@
     
 //    [self gcdTest3];
     
-    YYDispatchQueuePool *pool = [YYDispatchQueuePool defaultPoolForQOS:NSQualityOfServiceUtility];
+    YYDispatchQueuePool *pool = [[YYDispatchQueuePool alloc] initWithName:@"com.alan.queue" queueCount:2 qos:NSQualityOfServiceDefault];
     dispatch_async([pool queue], ^{
         NSLog(@"name 1 = %@", [NSThread currentThread]);
+        sleep(1);
     });
     dispatch_async([pool queue], ^{
         NSLog(@"name 2 = %@", [NSThread currentThread]);
+        sleep(2);
     });
+    dispatch_async([pool queue], ^{
+        NSLog(@"name 3 = %@", [NSThread currentThread]);
+//        sleep(1);
+    });
+    dispatch_async([pool queue], ^{
+        NSLog(@"name 4 = %@", [NSThread currentThread]);
+//        sleep(1);
+    });
+    
     
 }
 
