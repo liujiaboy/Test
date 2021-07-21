@@ -101,11 +101,11 @@
     YYDispatchQueuePool *pool = [[YYDispatchQueuePool alloc] initWithName:@"com.alan.queue" queueCount:2 qos:NSQualityOfServiceDefault];
     dispatch_async([pool queue], ^{
         NSLog(@"name 1 = %@", [NSThread currentThread]);
-        sleep(1);
+        sleep(5);
     });
     dispatch_async([pool queue], ^{
         NSLog(@"name 2 = %@", [NSThread currentThread]);
-        sleep(2);
+        sleep(10);
     });
     dispatch_async([pool queue], ^{
         NSLog(@"name 3 = %@", [NSThread currentThread]);
@@ -116,7 +116,7 @@
 //        sleep(1);
     });
     
-    
+//    [self deadLockFunc];
 }
 
 
@@ -240,6 +240,33 @@
         
     }
     NSLog(@"5");
+}
+
+void func(dispatch_queue_t queue, dispatch_block_t block)
+{
+    if (dispatch_get_current_queue() == queue) {
+        block();
+    }else{
+        dispatch_sync(queue, block);
+    }
+}
+
+- (void)deadLockFunc
+{
+    dispatch_queue_t queueA = dispatch_queue_create("com.yiyaaixuexi.queueA", NULL);
+    dispatch_queue_t queueB = dispatch_queue_create("com.yiyaaixuexi.queueB", NULL);
+    dispatch_sync(queueA, ^{
+        NSLog(@"1");
+        dispatch_sync(queueB, ^{
+            NSLog(@"2");
+            dispatch_block_t block = ^{
+                //do something
+                NSLog(@"3 block inner...");
+            };
+            func(queueA, block);
+            // 调用queueA发生死锁。queueB在当前线程、正常执行
+        });
+    });
 }
 
 @end
