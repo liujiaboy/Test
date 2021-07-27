@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E766EDD426AFA36000A4A75B /* ReadWriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E766EDD326AFA35F00A4A75B /* ReadWriteVC.m */; };
 		E7BD9C08267EE20700361100 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BD9C07267EE20700361100 /* AppDelegate.m */; };
 		E7BD9C0B267EE20700361100 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BD9C0A267EE20700361100 /* SceneDelegate.m */; };
 		E7BD9C0E267EE20700361100 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BD9C0D267EE20700361100 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E766EDD226AFA35F00A4A75B /* ReadWriteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadWriteVC.h; sourceTree = "<group>"; };
+		E766EDD326AFA35F00A4A75B /* ReadWriteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadWriteVC.m; sourceTree = "<group>"; };
 		E7BD9C03267EE20700361100 /* Thread-GCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thread-GCD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7BD9C06267EE20700361100 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E7BD9C07267EE20700361100 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				E7BD9C0A267EE20700361100 /* SceneDelegate.m */,
 				E7BD9C0C267EE20700361100 /* ViewController.h */,
 				E7BD9C0D267EE20700361100 /* ViewController.m */,
+				E766EDD226AFA35F00A4A75B /* ReadWriteVC.h */,
+				E766EDD326AFA35F00A4A75B /* ReadWriteVC.m */,
 				E7BD9C0F267EE20700361100 /* Main.storyboard */,
 				E7BD9C12267EE20B00361100 /* Assets.xcassets */,
 				E7BD9C14267EE20B00361100 /* LaunchScreen.storyboard */,
@@ -148,6 +153,7 @@
 				E7BD9C0E267EE20700361100 /* ViewController.m in Sources */,
 				E7BD9C08267EE20700361100 /* AppDelegate.m in Sources */,
 				E7BD9C19267EE20B00361100 /* main.m in Sources */,
+				E766EDD426AFA36000A4A75B /* ReadWriteVC.m in Sources */,
 				E7BD9C0B267EE20700361100 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "ReadWriteVC.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,11 @@
 //    [self dayinshunxu5];
     
     [self performTest1];
+}
+- (IBAction)readwriteAction:(id)sender {
+    
+    ReadWriteVC * vc = [ReadWriteVC new];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - NSThread
