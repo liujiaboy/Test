@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BButton : UIButton
 
+@property (nonatomic, assign) BOOL isAnimate;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,6 +11,9 @@
 
 @interface ViewController ()
 
+@property (nonatomic, weak) void(^weakBlock)(void);
+@property (nonatomic, copy) void(^copyBlock)(void);
+
 @end
 
 @implementation ViewController
@@ -44,6 +47,24 @@
 //    NSLog(@"block = %@", ^{
 //        NSLog(@"a = %d", a);
 //    });
+    
+    NSMutableString *mstr = [[NSMutableString alloc] init];
+    Person *p1 = [Person new];
+    void(^aBlock)(void) = ^{
+        [mstr appendString:@"1"];
+//        a+=1;
+        p1.name = @"p1";
+        p1 = [Person new];
+        NSLog(@"a = %d", a);
+    };
+    aBlock();
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [mstr appendString:@"2"];
+//        a += 1;
+    });
+//    __weak typeof(aBlock) aWeakBlock = aBlock;
+//    NSLog(@"a = %@, weakA = %@", aBlock, aWeakBlock);
 }
 
 - (void)blockTest1 {

@@ -10,12 +10,18 @@
 #import "AButton.h"
 #import "BButton.h"
 #import <YYDispatchQueuePool.h>
+#import "Person.h"
+#import "Person+A.h"
+#import "Person+B.h"
+#import "Student.h"
+#import "Teacher.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) AView *aView;
 @property (nonatomic, strong) AButton *btn;
 @property (nonatomic, strong) BButton *btn2;
+@property (nonatomic, strong) BButton *animateBtn;
 
 @end
 
@@ -76,6 +82,10 @@
     NSLog(@"view click...");
 }
 
+- (void)animateBtnClick {
+    NSLog(@"animate button click...");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self strTest];
@@ -86,15 +96,28 @@
     
 //    [self gcdTest];
     
-    [self.view addSubview:self.aView];
-    self.aView.frame = CGRectMake(20, 100, 300, 300);
+//    [self.view addSubview:self.aView];
+//    self.aView.frame = CGRectMake(20, 100, 300, 300);
+//
+//
+//    [self.aView addSubview:self.btn2];
+//    self.btn2.frame = CGRectMake(30, 40, 200, 44);
+//
+//    [self.aView addSubview:self.btn];
+//    self.btn.frame = CGRectMake(100, 40, 200, 44);
     
+//    self.mArr = [NSMutableArray array];
+//    [self.mArr addObject:@"1"];
     
-    [self.aView addSubview:self.btn2];
-    self.btn2.frame = CGRectMake(30, 40, 200, 44);
+    // animate button
+    [self.view addSubview:self.animateBtn];
+    self.animateBtn.frame = CGRectMake(20, 100, 100, 40);
     
-    [self.aView addSubview:self.btn];
-    self.btn.frame = CGRectMake(100, 40, 200, 44);
+    [UIView animateWithDuration:10 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.animateBtn.frame = CGRectMake(20, 500, 100, 40);
+    } completion:^(BOOL finished) {
+        self.animateBtn.frame = CGRectMake(20, 100, 100, 40);
+    }];
     
 //    [self gcdTest3];
     
@@ -117,6 +140,9 @@
     });
     
 //    [self deadLockFunc];
+    
+    // inistalized
+    [self initializeTest];
 }
 
 
@@ -269,4 +295,33 @@ void func(dispatch_queue_t queue, dispatch_block_t block)
     });
 }
 
+- (void)initializeTest {
+    Person *p = [Person new];
+    p.name = @"name";
+    NSLog(@"name = %@", p.name);
+//    [p sayA];
+//    Student *st = [Student new];
+//    [st sayST];
+//
+//    Teacher *t = [Teacher new];
+//    [t sayTeacher];
+}
+
+
+- (BButton *)animateBtn {
+    if (!_animateBtn) {
+        BButton *btn = [BButton buttonWithType:UIButtonTypeCustom];
+        btn.isAnimate = YES;
+        btn.backgroundColor = [UIColor clearColor];
+        [btn setTitle:@"animate button" forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size: 18];
+        [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(animateBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        btn.layer.borderColor = [UIColor systemPinkColor].CGColor;
+        btn.layer.borderWidth = 1;
+//        btn.userInteractionEnabled = NO;
+        _animateBtn = btn;
+    }
+    return _animateBtn;
+}
 @end

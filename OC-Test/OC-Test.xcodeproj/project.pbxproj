@@ -17,6 +17,11 @@
 		E736D9AE2680679D0082E694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E736D9AC2680679D0082E694 /* LaunchScreen.storyboard */; };
 		E736D9B12680679D0082E694 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E736D9B02680679D0082E694 /* main.m */; };
 		E736D9CE268195BF0082E694 /* AView.m in Sources */ = {isa = PBXBuildFile; fileRef = E736D9CD268195BE0082E694 /* AView.m */; };
+		E74660C126AD8E4F0011643A /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E74660C026AD8E4F0011643A /* Person.m */; };
+		E74660C426AD8E5D0011643A /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = E74660C326AD8E5D0011643A /* Student.m */; };
+		E74660C726AD8E710011643A /* Person+A.m in Sources */ = {isa = PBXBuildFile; fileRef = E74660C626AD8E710011643A /* Person+A.m */; };
+		E74660CA26AD8E7A0011643A /* Person+B.m in Sources */ = {isa = PBXBuildFile; fileRef = E74660C926AD8E7A0011643A /* Person+B.m */; };
+		E74660CD26AD90630011643A /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = E74660CC26AD90630011643A /* Teacher.m */; };
 		E7E16232268F4E8A006E4C4F /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E16231268F4E8A006E4C4F /* BButton.m */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,16 @@
 		E736D9B02680679D0082E694 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E736D9CC268195BE0082E694 /* AView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AView.h; sourceTree = "<group>"; };
 		E736D9CD268195BE0082E694 /* AView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AView.m; sourceTree = "<group>"; };
+		E74660BF26AD8E4F0011643A /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		E74660C026AD8E4F0011643A /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		E74660C226AD8E5D0011643A /* Student.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		E74660C326AD8E5D0011643A /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		E74660C526AD8E710011643A /* Person+A.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+A.h"; sourceTree = "<group>"; };
+		E74660C626AD8E710011643A /* Person+A.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+A.m"; sourceTree = "<group>"; };
+		E74660C826AD8E7A0011643A /* Person+B.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+B.h"; sourceTree = "<group>"; };
+		E74660C926AD8E7A0011643A /* Person+B.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+B.m"; sourceTree = "<group>"; };
+		E74660CB26AD90630011643A /* Teacher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
+		E74660CC26AD90630011643A /* Teacher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
 		E7E16230268F4E8A006E4C4F /* BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		E7E16231268F4E8A006E4C4F /* BButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		FD37A419F2028A3122F684F4 /* Pods-OC-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OC-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-OC-Test/Pods-OC-Test.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +121,16 @@
 				E71D9BF02685E5C000F311C2 /* AButton.m */,
 				E7E16230268F4E8A006E4C4F /* BButton.h */,
 				E7E16231268F4E8A006E4C4F /* BButton.m */,
+				E74660BF26AD8E4F0011643A /* Person.h */,
+				E74660C026AD8E4F0011643A /* Person.m */,
+				E74660C526AD8E710011643A /* Person+A.h */,
+				E74660C626AD8E710011643A /* Person+A.m */,
+				E74660C826AD8E7A0011643A /* Person+B.h */,
+				E74660C926AD8E7A0011643A /* Person+B.m */,
+				E74660C226AD8E5D0011643A /* Student.h */,
+				E74660C326AD8E5D0011643A /* Student.m */,
+				E74660CB26AD90630011643A /* Teacher.h */,
+				E74660CC26AD90630011643A /* Teacher.m */,
 				E736D9A72680679A0082E694 /* Main.storyboard */,
 				E736D9AA2680679D0082E694 /* Assets.xcassets */,
 				E736D9AC2680679D0082E694 /* LaunchScreen.storyboard */,
@@ -212,11 +237,16 @@
 			files = (
 				E736D9A62680679A0082E694 /* ViewController.m in Sources */,
 				E71D9BF12685E5C000F311C2 /* AButton.m in Sources */,
+				E74660C126AD8E4F0011643A /* Person.m in Sources */,
 				E736D9A02680679A0082E694 /* AppDelegate.m in Sources */,
 				E7E16232268F4E8A006E4C4F /* BButton.m in Sources */,
 				E736D9B12680679D0082E694 /* main.m in Sources */,
 				E736D9CE268195BF0082E694 /* AView.m in Sources */,
 				E736D9A32680679A0082E694 /* SceneDelegate.m in Sources */,
+				E74660C726AD8E710011643A /* Person+A.m in Sources */,
+				E74660CA26AD8E7A0011643A /* Person+B.m in Sources */,
+				E74660C426AD8E5D0011643A /* Student.m in Sources */,
+				E74660CD26AD90630011643A /* Teacher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

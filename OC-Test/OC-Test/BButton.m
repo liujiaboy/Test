@@ -18,7 +18,25 @@
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
     NSLog(@"B Button inside %@", NSStringFromCGPoint(point));
+    if (self.isAnimate) {
+        CGPoint ps = [self convertPoint:point toView:self.superview];
+        if ([self.layer.presentationLayer hitTest:ps]) {
+            return YES;
+        }
+    }
     return [super pointInside:point withEvent:event];
 }
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    if (self.isAnimate) {
+//        CGPoint ps = [touches.anyObject locationInView:self.superview];
+//        if ([self.layer.presentationLayer hitTest:ps]) {
+//            [super touchesBegan:touches withEvent:event];
+//        }
+//    }
+//    else {
+//        [super touchesBegan:touches withEvent:event];
+//    }
+//}
 
 @end
