@@ -7,41 +7,89 @@
 
 #import "ReadWriteVC.h"
 
+#import "WeakAssociateObj.h"
+#import "Person+A.h"
+
 @interface ReadWriteVC () {
-    dispatch_queue_t _queue1;
+//    dispatch_queue_t _queue1;
 }
 
 @property (nonatomic, strong) NSMutableDictionary *dict;
 
-//@property (nonatomic, strong) ;
+@property (nonatomic, strong) dispatch_queue_t queue1;
+
+@property (nonatomic, strong) Person *person;
 
 @end
 
 @implementation ReadWriteVC
+
+- (void)dealloc
+{
+    NSLog(@"%s", __func__);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"read write";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.dict = [NSMutableDictionary dictionary];
-    [self.dict setValue:@"1" forKey:@"1"];
-    [self.dict setValue:@"2" forKey:@"2"];
-    
-    _queue1 = dispatch_queue_create("queue1", DISPATCH_QUEUE_CONCURRENT);
-    
-    [self safe_ValueForKey:@"1" success:^(NSString *value) {
-        NSLog(@"key = 1, value = %@", value);
-    }];
-    [self safe_ValueForKey:@"2" success:^(NSString *value) {
-        NSLog(@"key = 2, value = %@", value);
-    }];
-    [self safe_SetValue:@"3" forKey:@"3"];
+//    self.dict = [NSMutableDictionary dictionary];
+//    [self.dict setValue:@"1" forKey:@"1"];
+//    [self.dict setValue:@"2" forKey:@"2"];
+//
+//    _queue1 = dispatch_queue_create("queue1", DISPATCH_QUEUE_CONCURRENT);
+//
+//    [self safe_ValueForKey:@"1" success:^(NSString *value) {
+//        NSLog(@"key = 1, value = %@", value);
+//    }];
+//    [self safe_ValueForKey:@"2" success:^(NSString *value) {
+//        NSLog(@"key = 2, value = %@", value);
+//    }];
+//    [self safe_SetValue:@"3" forKey:@"3"];
 //    [self safe_ValueForKey:@"3" success:^(NSString *value) {
 //        NSLog(@"key = 3, value = %@", value);
 //    }];
+    
+    
+//    weak
+//    [self weakAssociate];
+//    NSLog(@"array = %@", self.person.weakArray);
+    
+    // NSNotification
+    [self addNotify];
 }
 
+#pragma mark - Weak Associate
+- (void)weakAssociate {
+    self.person = [Person new];
+    self.person.weakArray = @[@1, @2];
+}
+
+#pragma mark - NSNotification
+- (void)addNotify {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notify_a) name:@"kAAAA_notification" object:@1];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notify_b) name:@"kAAAA_notification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notify_c:) name:nil object:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"kAAAA_notification" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:nil object:nil];
+}
+
+- (void)notify_a {
+    NSLog(@"%s", __func__);
+}
+
+- (void)notify_b {
+    NSLog(@"%s", __func__);
+}
+
+- (void)notify_c:(NSNotification *)nofity {
+    NSLog(@"%s, name = %@", __func__, nofity.name);
+    
+}
+
+#pragma mark - Read Write
 - (void)safe_ValueForKey:(NSString *)key success:(void(^)(NSString *value))success {
     NSString *key1 = [key copy];
     __block NSString *value = nil;
