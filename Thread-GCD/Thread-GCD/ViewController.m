@@ -6,8 +6,12 @@
 //
 
 #import "ViewController.h"
+#import "ReadWriteVC.h"
+#import "Person+A.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) Person *person;
 
 @end
 
@@ -24,7 +28,29 @@
 //    [self dayinshunxu4];
 //    [self dayinshunxu5];
     
-    [self performTest1];
+//    [self performTest1];
+    
+    // kvo
+//    [self addNotifications];
+}
+- (IBAction)readwriteAction:(id)sender {
+    
+    ReadWriteVC * vc = [ReadWriteVC new];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+
+#pragma mark - Observer KVO
+- (void)addNotifications {
+    self.person = [Person new];
+    
+//    [self.person addObserver:self forKeyPath:@"al_name" options:NSKeyValueObservingOptionNew context:nil];
+    
+//    self.person.al_name = @"al_name";
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    NSLog(@"change - %@", change);
 }
 
 #pragma mark - NSThread

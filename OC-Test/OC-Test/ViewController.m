@@ -122,11 +122,17 @@
 //    [self gcdTest3];
     
     YYDispatchQueuePool *pool = [[YYDispatchQueuePool alloc] initWithName:@"com.alan.queue" queueCount:2 qos:NSQualityOfServiceDefault];
-    dispatch_async([pool queue], ^{
+    dispatch_queue_t q1 = [pool queue];
+    dispatch_async(q1, ^{
+        char *label = dispatch_queue_get_label(q1);
+        NSLog(@"name 1 label = %s", label);
         NSLog(@"name 1 = %@", [NSThread currentThread]);
         sleep(5);
     });
-    dispatch_async([pool queue], ^{
+    dispatch_queue_t q2 = [pool queue];
+    dispatch_async(q2, ^{
+        char *label = dispatch_queue_get_label(q2);
+        NSLog(@"name 2 label = %s", label);
         NSLog(@"name 2 = %@", [NSThread currentThread]);
         sleep(10);
     });
@@ -143,6 +149,7 @@
     
     // inistalized
     [self initializeTest];
+    [self arrayTest];
 }
 
 
@@ -151,6 +158,8 @@
     NSString *stringCopy = [string copy];
     NSMutableString *stringMCopy = [string mutableCopy];
     NSLog(@"string = %p, stringCopy = %p, stringMCopy = %p", string, stringCopy, stringMCopy);
+    [stringMCopy appendString:@"-123"];
+    NSLog(@"str = %@", stringMCopy);
     // string = 0x107c86018,
     // stringCopy = 0x107c86018,
     // stringMCopy = 0x600001b30f30
@@ -179,8 +188,12 @@
 - (void)arrayTest {
     NSArray *array = @[[NSMutableString stringWithString: @"alan.com"], @"2"];
     NSArray *arrayCopy = [array copy];
-    NSArray *arrayMCopy = [array mutableCopy];
+    NSMutableArray *arrayMCopy = [array mutableCopy];
         
+    // mutable copy变可变数组
+//    [arrayMCopy addObject:@"add name"];
+//    NSLog(@"arrayMCopy = %@", arrayMCopy);
+    
     NSLog(@"array = %p", array);
     NSLog(@"arrayCopy = %p", arrayCopy);
     NSLog(@"arrayMCopy = %p", arrayMCopy);
@@ -205,7 +218,11 @@
     NSMutableArray *array = [NSMutableArray arrayWithObjects:[NSMutableString stringWithString: @"alan.com"], @"2", nil];
     NSMutableArray *arrayCopy = [array copy];
     NSMutableArray *arrayMCopy = [array mutableCopy];
-        
+    
+    // crash
+//    [arrayCopy addObject:@"add name"];
+//    NSLog(@"arrayCopy = %@", arrayCopy);
+    
     NSLog(@"array = %p", array);
     NSLog(@"arrayCopy = %p", arrayCopy);
     NSLog(@"arrayMCopy = %p", arrayMCopy);
