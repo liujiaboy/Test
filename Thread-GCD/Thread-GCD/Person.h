@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSObject
 
+- (void)addTimer;
+
+- (void)proxyWeakTimer;
+
+- (void)displayLinkTimer;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E702E57326B67D6200DFDD62 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E702E57226B67D6200DFDD62 /* TimerViewController.m */; };
+		E702E58126B787E900DFDD62 /* WeakTimerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E702E58026B787E900DFDD62 /* WeakTimerProxy.m */; };
 		E766EDD426AFA36000A4A75B /* ReadWriteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E766EDD326AFA35F00A4A75B /* ReadWriteVC.m */; };
 		E766EE0B26B134BE00A4A75B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E766EE0A26B134BD00A4A75B /* Person.m */; };
 		E766EE0F26B134D400A4A75B /* Person+A.m in Sources */ = {isa = PBXBuildFile; fileRef = E766EE0E26B134D400A4A75B /* Person+A.m */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E702E57126B67D6200DFDD62 /* TimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		E702E57226B67D6200DFDD62 /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
+		E702E57F26B787E900DFDD62 /* WeakTimerProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakTimerProxy.h; sourceTree = "<group>"; };
+		E702E58026B787E900DFDD62 /* WeakTimerProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakTimerProxy.m; sourceTree = "<group>"; };
 		E766EDD226AFA35F00A4A75B /* ReadWriteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadWriteVC.h; sourceTree = "<group>"; };
 		E766EDD326AFA35F00A4A75B /* ReadWriteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadWriteVC.m; sourceTree = "<group>"; };
 		E766EE0926B134BD00A4A75B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -83,10 +89,14 @@
 				E766EE0A26B134BD00A4A75B /* Person.m */,
 				E766EE0D26B134D400A4A75B /* Person+A.h */,
 				E766EE0E26B134D400A4A75B /* Person+A.m */,
+				E702E57F26B787E900DFDD62 /* WeakTimerProxy.h */,
+				E702E58026B787E900DFDD62 /* WeakTimerProxy.m */,
 				E766EE1126B1369800A4A75B /* WeakAssociateObj.h */,
 				E766EE1226B1369800A4A75B /* WeakAssociateObj.m */,
 				E766EDD226AFA35F00A4A75B /* ReadWriteVC.h */,
 				E766EDD326AFA35F00A4A75B /* ReadWriteVC.m */,
+				E702E57126B67D6200DFDD62 /* TimerViewController.h */,
+				E702E57226B67D6200DFDD62 /* TimerViewController.m */,
 				E7BD9C0F267EE20700361100 /* Main.storyboard */,
 				E7BD9C12267EE20B00361100 /* Assets.xcassets */,
 				E7BD9C14267EE20B00361100 /* LaunchScreen.storyboard */,
@@ -168,10 +178,12 @@
 				E766EE0B26B134BE00A4A75B /* Person.m in Sources */,
 				E7BD9C0E267EE20700361100 /* ViewController.m in Sources */,
 				E7BD9C08267EE20700361100 /* AppDelegate.m in Sources */,
+				E702E57326B67D6200DFDD62 /* TimerViewController.m in Sources */,
 				E7BD9C19267EE20B00361100 /* main.m in Sources */,
 				E766EE1326B1369800A4A75B /* WeakAssociateObj.m in Sources */,
 				E766EE0F26B134D400A4A75B /* Person+A.m in Sources */,
 				E766EDD426AFA36000A4A75B /* ReadWriteVC.m in Sources */,
+				E702E58126B787E900DFDD62 /* WeakTimerProxy.m in Sources */,
 				E7BD9C0B267EE20700361100 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

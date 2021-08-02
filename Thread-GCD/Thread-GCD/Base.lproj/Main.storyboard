@@ -24,6 +24,14 @@
                                     <action selector="readwriteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7P-P5-ZH1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTs-Z7-Ax1">
+                                <rect key="frame" x="176" y="254" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Timer"/>
+                                <connections>
+                                    <action selector="timerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJZ-HV-HnS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -32,13 +32,48 @@
     
     // kvo
 //    [self addNotifications];
+    
+    //
+    [self zixiancheng];
 }
+
+- (IBAction)timerAction:(id)sender {
+    Class cls = NSClassFromString(@"TimerViewController");
+    UIViewController *vc = [[cls alloc] init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (IBAction)readwriteAction:(id)sender {
     
     ReadWriteVC * vc = [ReadWriteVC new];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)zixiancheng {
+    dispatch_async(dispatch_queue_create("alannnnn.com", DISPATCH_QUEUE_SERIAL), ^{
+       
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            NSLog(@"main after ....");
+//        });
+        
+        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_queue_create("alannnnn21.com", DISPATCH_QUEUE_CONCURRENT), ^{
+//            NSLog(@"sub line after ....");
+//        });
+        
+//        [[NSRunLoop currentRunLoop] run];
+//        [self performSelector:@selector(performAfter) withObject:nil afterDelay:3];
+        
+//        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(performAfter) userInfo:nil repeats:YES];
+//        [timer fire];
+//        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        
+    });
+}
+
+- (void)performAfter {
+    NSLog(@"%s, thread = %@", __func__, [NSThread currentThread]);
+}
 
 #pragma mark - Observer KVO
 - (void)addNotifications {
