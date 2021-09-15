@@ -43,24 +43,32 @@
     });
     
     // iOS14之后，即使这种打印方式也不会出现stack block，会执行copy到堆，变成malloc block
-    int a = 10;
+    __block int a = 10;
 //    NSLog(@"block = %@", ^{
 //        NSLog(@"a = %d", a);
 //    });
     
     NSMutableString *mstr = [[NSMutableString alloc] init];
+    [mstr appendString:@"1"];
+    NSLog(@"mstr = %@, address = %p",mstr, &mstr);
     Person *p1 = [Person new];
     void(^aBlock)(void) = ^{
-        [mstr appendString:@"1"];
-//        a+=1;
+        [mstr appendString:@"2"];
+        NSLog(@"mstr = %@, address = %p",mstr, &mstr);
+        a+=1;
         p1.name = @"p1";
-        p1 = [Person new];
+//        p1 = [Person new];
         NSLog(@"a = %d", a);
     };
     aBlock();
     
+    [mstr appendString:@"~3~"];
+    NSLog(@"mstr = %@, address = %p",mstr, &mstr);
+    a += 1;
+    aBlock();
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [mstr appendString:@"2"];
+//        [mstr appendString:@"2"];
 //        a += 1;
     });
 //    __weak typeof(aBlock) aWeakBlock = aBlock;

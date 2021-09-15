@@ -89,7 +89,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self strTest];
-//    [self mstrTest];
+    [self mstrTest];
     
 //    [self arrayTest];
 //    [self marrayTest];
@@ -168,6 +168,9 @@
 }
 
 - (void)mstrTest {
+//    NSString *astr = [[NSMutableString alloc] initWithString:@"123"];
+//    [astr appendString:@"~~"];
+    
     NSMutableString *mstring = [NSMutableString stringWithString: @"alan.com"];
     //copy
     NSMutableString *mStringCopy = [mstring copy];

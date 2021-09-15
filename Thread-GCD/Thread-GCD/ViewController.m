@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) Person *person;
 
+@property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation ViewController
@@ -61,12 +63,14 @@
 //            NSLog(@"sub line after ....");
 //        });
         
+        // runloop写在前面是不行的
 //        [[NSRunLoop currentRunLoop] run];
-//        [self performSelector:@selector(performAfter) withObject:nil afterDelay:3];
+        [self performSelector:@selector(performAfter) withObject:nil afterDelay:3];
         
-//        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(performAfter) userInfo:nil repeats:YES];
-//        [timer fire];
-//        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+//        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(performAfter) userInfo:nil repeats:YES];
+//        [self.timer fire];
+//        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+//        [[NSRunLoop currentRunLoop] run];
         
     });
 }
