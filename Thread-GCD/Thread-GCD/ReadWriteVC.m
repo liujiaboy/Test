@@ -34,30 +34,16 @@
     self.title = @"read write";
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    self.dict = [NSMutableDictionary dictionary];
-//    [self.dict setValue:@"1" forKey:@"1"];
-//    [self.dict setValue:@"2" forKey:@"2"];
-//
-//    _queue1 = dispatch_queue_create("queue1", DISPATCH_QUEUE_CONCURRENT);
-//
-//    [self safe_ValueForKey:@"1" success:^(NSString *value) {
-//        NSLog(@"key = 1, value = %@", value);
-//    }];
-//    [self safe_ValueForKey:@"2" success:^(NSString *value) {
-//        NSLog(@"key = 2, value = %@", value);
-//    }];
-//    [self safe_SetValue:@"3" forKey:@"3"];
-//    [self safe_ValueForKey:@"3" success:^(NSString *value) {
-//        NSLog(@"key = 3, value = %@", value);
-//    }];
-    
+    self.dict = [NSMutableDictionary dictionary];
+    _queue1 = dispatch_queue_create("queue1", DISPATCH_QUEUE_CONCURRENT);
+    [self readWriteTest2];
     
 //    weak
 //    [self weakAssociate];
 //    NSLog(@"array = %@", self.person.weakArray);
     
     // NSNotification
-    [self addNotify];
+//    [self addNotify];
 }
 
 #pragma mark - Weak Associate
@@ -90,6 +76,36 @@
 }
 
 #pragma mark - Read Write
+- (void)readWriteTest1 {
+    [self.dict setValue:@"1" forKey:@"1"];
+    [self.dict setValue:@"2" forKey:@"2"];
+    
+    [self safe_ValueForKey:@"1" success:^(NSString *value) {
+        NSLog(@"key = 1, value = %@", value);
+    }];
+    [self safe_ValueForKey:@"2" success:^(NSString *value) {
+        NSLog(@"key = 2, value = %@", value);
+    }];
+    [self safe_SetValue:@"3" forKey:@"3"];
+    [self safe_ValueForKey:@"3" success:^(NSString *value) {
+        NSLog(@"key = 3, value = %@", value);
+    }];
+}
+
+- (void)readWriteTest2 {
+    
+    [self.dict setValue:@"1" forKey:@"1"];
+    [self.dict setValue:@"2" forKey:@"2"];
+//    [self safe_SetValue:@"1" forKey:@"1"];
+//    [self safe_SetValue:@"2" forKey:@"2"];
+    
+    [self safe_GetValueForKey:@"1"];
+    [self safe_GetValueForKey:@"2"];
+//    [self safe_SetValue:@"3" forKey:@"3"];
+//    [self safe_GetValueForKey:@"3"];
+    
+}
+
 - (void)safe_ValueForKey:(NSString *)key success:(void(^)(NSString *value))success {
     NSString *key1 = [key copy];
     __block NSString *value = nil;
@@ -106,6 +122,17 @@
 //    return value;
 }
 
+- (NSString *)safe_GetValueForKey:(NSString *)key {
+    __block NSString *value = nil;
+    NSLog(@"strart read key=%@...", key);
+    dispatch_sync(_queue1, ^{
+        value = [self.dict objectForKey:key];
+        sleep(3);
+        NSLog(@"end read key=%@, value=%@...", key, value);
+    });
+    return value;
+}
+
 - (void)safe_SetValue:(NSString *)value forKey:(NSString *)key {
     
     dispatch_barrier_async(_queue1, ^{
@@ -115,7 +142,7 @@
         NSLog(@"end write ...");
     });
     
-    NSLog(@"set method 2...");
+//    NSLog(@"set method 2...");
 }
 
 @end
